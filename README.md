@@ -4,4 +4,4 @@ Provides syntax highlighting and language support for [Galaktion](https://github
 <br>
 
 ## Features
-* Syntax highlighting for keywords, operators, XPath epressions, strings, directives, and more.
+* Syntax highlighting for keywords, operators, XPath expressions, strings, directives, and more.
