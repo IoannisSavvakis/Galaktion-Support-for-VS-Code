@@ -1,2 +1,7 @@
 # Galaktion-Support-for-VS-Code v0.1.0
-[Galaktion language](https://github.com/IoannisSavvakis/Galaktion) coloring support for Visual Studio Code.
+Provides syntax highlighting and language support for [Galaktion](https://github.com/IoannisSavvakis/Galaktion) files (`.gal`) on Visual Studio Code.
+
+<br>
+
+## Features
+* Syntax highlighting for keywords, operators, XPath epressions, strings, directives, and more.

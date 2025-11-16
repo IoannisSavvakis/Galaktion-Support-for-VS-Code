@@ -1,0 +1,199 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Galaktion",
+	"scopeName": "source.galaktion",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#directives"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#xpaths"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.galaktion",
+					"match": "\\b(if|else|foreach|from|as|in|break|continue|generate|extract|print|exit)\\b"
+				},
+				{
+					"name": "storage.type.galaktion",
+					"match": "\\b(folder|xmlfile|jsonfile|csvfile|flexible)\\b"
+				},
+				{
+					"name": "constant.language.galaktion",
+					"match": "\\b(true|false|none)\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.galaktion",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.galaktion",
+							"match": "([^\\\\\\\n])|(\\\\.)"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.galaktion",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.galaktion",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"comments": {
+			"name": "comment.block.galaktion",
+			"begin": "`",
+			"end": "`"
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.real.galaktion",
+					"match": "\\b\\d*\\.\\d+\\b"
+				},
+				{
+					"name": "constant.numeric.integer.galaktion",
+					"match": "\\b\\d+\\b"
+				}
+			]
+		},
+		"variables": {
+			"name": "variable.other.galaktion",
+			"match": "\\$[a-zA-Z_][a-zA-Z_0-9]*"
+		},
+		"directives": {
+			"patterns": [
+				{
+					"match": "#(latlong|longlat|subfolders|filelocation|filename|flush)\\b",
+					"name": "entity.name.function.preprocessor.galaktion"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.control.flow.galaktion",
+					"match": "->"
+				},
+				{
+					"name": "keyword.operator.assignment.galaktion",
+					"match": "(:=|\\.=|:[\\-\\+\\*]|\\.[\\-\\+\\*]|:div|\\.div|:mod|\\.mod|:\\+\\+|\\.\\+\\+)"
+				},
+				{
+					"name": "constant.language.galaktion",
+					"match": "\\b(and|or|not|div|mod)\\b"
+				},
+				{
+					"name": "keyword.operator.arithmetic.galaktion",
+					"match": "(\\-|\\+|\\*|\\+\\+)"
+				},
+				{
+					"name": "keyword.operator.comparison.galaktion",
+					"match": "(=|!=|<=|>=|<|>)"
+				}
+			]
+		},
+		"xpaths": {
+			"patterns": [
+				{
+					"name": "meta.predicate.xpath.galaktion",
+					"begin": "\\[",
+					"end": "\\]",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.predicate.begin.galaktion"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.predicate.end.galaktion"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#variables"
+						},
+						{
+							"include": "#xpaths"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#operators"
+						}
+					]
+				},
+				{
+					"name": "support.type.axis.xpath.galaktion",
+					"match": "\\b(ancestor|descendant|following|preceding|self|child|parent|attribute|namespace)[-a-zA-Z]*(?=::)"
+				},
+				{
+					"name": "support.function.xpath.galaktion",
+					"match": "\\b(text|node|last|position|count|name|concat|starts-with|contains|substring|string-length|not|sum|floor|ceiling|round)(?=\\()"
+				},
+				{
+					"match": "(@)([a-zA-Z_\\-:]+)",
+					"captures": {
+						"1": {
+							"name": "entity.other.attribute-name.xpath.galaktion"
+						},
+						"2": {
+							"name": "entity.other.attribute-name.xpath.galaktion"
+						}
+					}
+				},
+				{
+					"name": "punctuation.separator.slash.xpath.galaktion",
+					"match": "\\/\\/|\\/"
+				},
+				{
+					"name": "entity.name.class.xpath.galaktion",
+					"match": "\\.\\.|\\."
+				},
+				{
+					"name": "constant.language.wildcard.xpath.galaktion",
+					"match": "\\*"
+				},
+				{
+					"name": "entity.name.class.xpath.galaktion",
+					"match": "[a-zA-Z_][a-zA-Z_0-9\\-\\.]*?(?=(->)|$|[^a-zA-Z_0-9\\.\\-])"
+				}
+			]
+		}
+	}
+}

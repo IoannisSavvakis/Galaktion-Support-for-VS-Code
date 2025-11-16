@@ -1,0 +1,39 @@
+{
+  "name": "galaktion",
+  "displayName": "Galaktion",
+  "description": "Support for Galaktion, relationally linked XML data management language",
+  "version": "0.1.0",
+  "publisher": "Ioannis Savvakis",
+  "engines": {
+    "vscode": "^1.76.2"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IoannisSavvakis/Galaktion-Support-for-VS-Code"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "galaktion",
+        "aliases": [
+          "Galaktion",
+          "galaktion"
+        ],
+        "extensions": [
+          ".gal"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "galaktion",
+        "scopeName": "source.galaktion",
+        "path": "./syntaxes/galaktion.tmLanguage.json"
+      }
+    ]
+  }
+}
